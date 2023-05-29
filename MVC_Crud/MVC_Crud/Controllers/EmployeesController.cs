@@ -91,5 +91,18 @@ namespace MVC_Crud.Controllers
             return RedirectToAction("Index");
 
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(UpdateEmployeViewModel viewModel)
+        {
+            var employee = await _context.Employees.FindAsync(viewModel.Id);
+            if(employee != null)
+            {
+                _context.Employees.Remove(employee);
+                _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            return RedirectToAction("Index");
+        }
     }
 }
