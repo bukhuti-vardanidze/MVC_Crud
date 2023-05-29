@@ -1,0 +1,32 @@
+﻿@model List<MVC_Crud.Models.Domain.Employee>
+@{
+}
+
+<h1>Employees</h1>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Salary</th>
+			<th>Date Of Birth</th>
+			<th>Department</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		@foreach (var employee in Model)
+		{
+			<tr>
+				<td>@employee.Id</td>
+				<td>@employee.Name</td>
+				<td>@employee.Email</td>
+				<td>@employee.Salary</td>
+				<td>@employee.DateOfBith.ToString("dd-MM-yyyy")</td>
+				<td><a href="Employees/View/@employee.Id"> View</a></td>			
+			</tr>
+		}
+	</tbody>
+
+</table>
